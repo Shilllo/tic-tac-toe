@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: brown;
+    gap: 10px;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.gameSpace {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    padding: 10px;
+    gap: 5px;
+    height: 300px;
+    width: 300px;
+}
+
+.cell {
+    border: 3px solid rgb(90, 4, 4);
+}

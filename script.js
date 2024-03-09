@@ -1,11 +1,7 @@
 function Gameboard() {
     const board = []
-
     for (let i = 0; i <= 2; i++) {
-        board[i] = []
-        for (let j = 0; j <= 2; j++) {
-            board[i].push(0)
-        }
+        board[i] = [0, 0, 0]
     }
 
     const restartGame = () => {
@@ -13,6 +9,7 @@ function Gameboard() {
             board[i] = [0, 0, 0]
         }
     }
+    
     const getBoard = () => board
 
     const printBoard = () => {
@@ -39,7 +36,19 @@ function Gameboard() {
         }
     }
 
-    return { getBoard, printBoard, makeMove, checkWin, restartGame }
+    const showGame = () => {
+        let gameSpace = document.querySelector('gameSpace')
+        console.log(board)
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                const cell = document.querySelector(`.cell${i}${j}`)
+                cell.textContent = board[i][j]
+                console.log(cell)
+            }
+        }
+    }
+
+    return { getBoard, printBoard, makeMove, checkWin, restartGame, showGame }
 }
 
 function GameController(
@@ -63,6 +72,7 @@ function GameController(
 
     console.log(`${activePlayer.playerName}'s turn`)
 
+
     const switchPlayers = () => {
         activePlayer = activePlayer === players[0] ? players[1]: players[0]
     }
@@ -70,9 +80,11 @@ function GameController(
     const getActivePlayer = () => {
         return console.log(activePlayer.playerName)
     }
+
     const playRound = (row, column) => {
         if (board.getBoard()[row][column] == '0') {
             board.makeMove(activePlayer, row, column)
+            board.showGame()
             board.printBoard()
             switchPlayers()
             if (board.checkWin()) {
@@ -88,6 +100,7 @@ function GameController(
         }
     }
 
+    
     return { playRound, getActivePlayer }
 }
 
