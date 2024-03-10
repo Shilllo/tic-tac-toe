@@ -25,4 +25,29 @@ body {
 
 .cell {
     border: 3px solid rgb(90, 4, 4);
+    color: rgb(90, 4, 4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+}
+
+.cell:hover {
+    background-color: rgb(146, 8, 8);
+}
+
+h2 {
+    color: white
+}
+
+.restart {
+    width: 300px;
+    height: 50px;
+    background-color: brown;
+    color: white;
+    border: 2px solid rgb(90, 4, 4)
+}
+
+.restart:hover {
+    background-color: rgb(146, 8, 8);
 }
